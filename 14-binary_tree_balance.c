@@ -1,0 +1,45 @@
+#include "binary_trees.h"
+/**
+ * binary_tree_balance - function that measures the balance factor of a tree
+ * @tree: root
+ * Return: number leaves
+ */
+int binary_tree_balance(const binary_tree_t *tree)
+{
+	if (tree == NULL)
+		return (0);
+
+	if (tree->left == NULL && tree->right == NULL)
+		return (0);
+
+	int heightL = binary_tree_height(tree->left);
+	int heightR = binary_tree_height(tree->right);
+
+	if ((heightL > heightR) || (heightR > heightL))
+		return (2);
+	return (-1);
+}
+/**
+ * binary_tree_height - goes through a binary tree using post-order
+ * @tree: root
+ * Return: void
+ */
+size_t binary_tree_height(const binary_tree_t *tree)
+{
+	size_t count_l = 0;
+	size_t count_r = 0;
+
+	if (tree == NULL || (tree->left == NULL && tree->right == NULL))
+		return (0);
+
+	count_l = (binary_tree_height(tree->left) + 1);
+	count_r = (binary_tree_height(tree->right) + 1);
+	if (count_l >= count_r)
+	{
+		return (count_l);
+	}
+	else
+	{
+		return (count_r);
+	}
+}
