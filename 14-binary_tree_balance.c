@@ -17,7 +17,6 @@ int binary_tree_balance(const binary_tree_t *tree)
 	heightR = binary_tree_height(tree->right);
 
 	return (heightL - heightR);
-		
 }
 /**
  * binary_tree_height - goes through a binary tree using post-order
