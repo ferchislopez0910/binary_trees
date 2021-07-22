@@ -19,7 +19,7 @@ size_t binary_tree_leaves(const binary_tree_t *tree)
 	{
 		count++;
 	}
-	if (tree->parent && !tree->right && !tree->left)
+	if (!tree->right && !tree->left)
 	{
 		count++;
 	}
