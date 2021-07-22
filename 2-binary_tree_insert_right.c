@@ -29,21 +29,10 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 	}
 	else
 	{
-		for (tmp = parent; tmp->right != NULL; tmp = tmp->right)
-		{
-			if (value < tmp->right->n)
-			{
-				new->parent = tmp;
-				new->right = tmp->right;
-				tmp->right = new;
-				new->right->parent = new;
-				new->right->right = NULL;
-				return (new);
-			}
-		}
-		new->parent = tmp;
-		new->right = NULL;
-		tmp->right = new;
+		new->parent = parent;
+		new->right = parent->right;
+		parent->right = new;
+		new->right->parent = new;
 	}
 	return (new);
 }
