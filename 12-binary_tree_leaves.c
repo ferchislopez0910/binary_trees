@@ -21,7 +21,7 @@ size_t binary_tree_leaves(const binary_tree_t *tree)
 	}
 	if (!tree->right && !tree->left)
 	{
-		count++;
+		return (1);
 	}
 
 	return (count);
